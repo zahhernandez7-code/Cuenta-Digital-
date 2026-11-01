@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas Digital Exprés | Entretenimiento sin Límites</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#090D16',
+                            card: '#131B2E',
+                            accent: '#6366F1',
+                            whatsapp: '#25D366'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F8FAFC;
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        /* Tarjetas con estilo limpio, humano y profesional */
+        .glass-card {
+            background: #131B2B;
+            border: 1px solid #1E293B;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: #38BDF8;
+            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6);
+        }
+        /* Animación suave para el botón de WhatsApp */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.97); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.97); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .wa-pulse {
+            animation: pulse-ring 2.2s infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-slate-950 relative">
+
+    <!-- BARRA SUPERIOR INFORMATIVA -->
+    <div class="bg-[#0F172A] border-b border-slate-800 px-4 py-2.5 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2 text-slate-200 font-medium mx-auto sm:mx-0">
+                <i class="fa-solid fa-crown text-amber-400"></i>
+                <span><strong>Cuentas Digital Exprés:</strong> Tus plataformas favoritas a los mejores precios</span>
+            </div>
+            <button onclick="contactWhatsApp('¡Hola Cuentas Digital Exprés! Quiero recibir información de tu catálogo.')" class="hidden sm:flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Atención directa por WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0B0F17]/95 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Cuentas Digital Exprés -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 rounded-2xl bg-slate-900 border border-cyan-400/50 flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fa-solid fa-crown text-cyan-400 text-[11px] absolute -top-2 -right-1 rotate-12"></i>
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-400 to-emerald-400 flex items-center justify-center p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-play text-cyan-400 text-base ml-0.5"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="font-display font-extrabold text-lg sm:text-xl tracking-tight leading-none">
+                        <span class="text-cyan-400">CUENTAS</span> <span class="text-white">DIGITAL</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 mt-0.5">
+                        <span class="h-[2px] w-3 bg-emerald-400 rounded-full"></span>
+                        <span class="font-display font-black text-xs sm:text-sm italic tracking-widest text-emerald-400">EXPRÉS</span>
+                        <span class="h-[2px] w-3 bg-emerald-400 rounded-full"></span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Enlaces Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#catalogo" class="hover:text-cyan-400 transition">Catálogo</a>
+                <a href="#como-comprar" class="hover:text-cyan-400 transition">¿Cómo Comprar?</a>
+                <a href="#quienes-somos" class="hover:text-cyan-400 transition">Quiénes Somos</a>
+                <a href="#soporte" class="hover:text-cyan-400 transition">Preguntas y Soporte</a>
+            </nav>
+
+            <!-- Botón CTA WhatsApp Directo (sin mostrar número) -->
+            <div class="hidden sm:flex items-center gap-3">
+                <button onclick="contactWhatsApp('¡Hola Cuentas Digital Exprés! Vengo de la página web y me gustaría conocer los precios de las plataformas.')" 
+                    class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-md transition transform active:scale-95 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Escribir al WhatsApp</span>
+                </button>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#catalogo" class="block py-2 text-slate-200 font-medium border-b border-slate-800">📦 Catálogo de Plataformas</a>
+            <a href="#como-comprar" class="block py-2 text-slate-200 font-medium border-b border-slate-800">⚡ ¿Cómo Comprar?</a>
+            <a href="#quienes-somos" class="block py-2 text-slate-200 font-medium border-b border-slate-800">🛡️ Quiénes Somos</a>
+            <a href="#soporte" class="block py-2 text-slate-200 font-medium pb-2">🎧 Preguntas Frecuentes y Soporte</a>
+            <button onclick="contactWhatsApp('¡Hola Cuentas Digital Exprés! Vengo de la página web y quiero información sobre las cuentas disponibles.')" 
+                class="w-full flex items-center justify-center gap-2 bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl shadow-md">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Escribir al WhatsApp
+            </button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO / PORTADA -->
+    <section class="relative pt-10 pb-16 lg:pt-14 lg:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <!-- Columna de Texto -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800/90 border border-slate-700 text-cyan-300 text-xs sm:text-sm font-semibold">
+                    <i class="fa-solid fa-crown text-amber-400"></i>
+                    <span>Entretenimiento Digital • Entrega Rápida</span>
+                </div>
+
+                <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-white">
+                    Tus plataformas <span class="text-cyan-400">FAVORITAS</span> ¡a mejores precios!
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    En <strong>Cuentas Digital Exprés</strong> disfrutas de películas, series, deportes y música en <strong>Netflix Original, Disney+, Amazon Prime Video, YouTube Premium, Spotify Premium y Paramount+</strong>. Atención directa y personalizada por WhatsApp.
+                </p>
+
+                <!-- Botones Principales -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#catalogo" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-md transition">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Ver Catálogo</span>
+                    </a>
+                    <button onclick="contactWhatsApp('¡Hola! Cuéntame qué precio tienen las plataformas, vengo de tu página web.')" 
+                        class="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-xl shadow-md transition">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Consultar por WhatsApp</span>
+                    </button>
+                </div>
+
+                <!-- 4 Beneficios Clave -->
+                <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-slate-800 text-left">
+                    <div class="p-3 rounded-xl bg-[#131B2B] border border-slate-800 flex items-center gap-2.5">
+                        <i class="fa-solid fa-tags text-cyan-400 text-lg shrink-0"></i>
+                        <span class="text-white font-semibold text-xs leading-tight">Precios accesibles</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#131B2B] border border-slate-800 flex items-center gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-emerald-400 text-lg shrink-0"></i>
+                        <span class="text-white font-semibold text-xs leading-tight">Perfiles seguros y confiables</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#131B2B] border border-slate-800 flex items-center gap-2.5">
+                        <i class="fa-solid fa-bolt text-amber-400 text-lg shrink-0"></i>
+                        <span class="text-white font-semibold text-xs leading-tight">Entrega rápida sin demoras</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#131B2B] border border-slate-800 flex items-center gap-2.5">
+                        <i class="fa-solid fa-headset text-purple-400 text-lg shrink-0"></i>
+                        <span class="text-white font-semibold text-xs leading-tight">Soporte por WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Visual: Muestra del Logo + Plataformas -->
+            <div class="lg:col-span-5">
+                <div class="glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden">
+                    <!-- Cabecera con Logo Oficial -->
+                    <div class="text-center pb-5 mb-5 border-b border-slate-800">
+                        <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-slate-950 border border-cyan-400/50 flex items-center justify-center relative">
+                            <i class="fa-solid fa-crown text-cyan-300 text-sm absolute -top-2.5 -right-1.5 rotate-12"></i>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-400 to-emerald-400 p-0.5 flex items-center justify-center">
+                                <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-xl text-cyan-400 ml-0.5"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-display font-black text-xl tracking-tight">
+                            <span class="text-cyan-400">CUENTAS</span> <span class="text-white">DIGITAL</span> <span class="text-emerald-400 italic">EXPRÉS</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">Películas, series, deportes y música</p>
+                    </div>
+
+                    <!-- Mini Grid Visual de Logos -->
+                    <div class="grid grid-cols-3 gap-2.5 mb-6">
+                        <div class="h-14 rounded-xl bg-black border border-red-600/40 flex items-center justify-center px-2">
+                            <span class="font-display font-black text-red-600 tracking-wider text-sm">NETFLIX</span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#00A8E1] flex flex-col items-center justify-center px-2">
+                            <span class="font-sans font-bold text-white text-xs leading-none">prime video</span>
+                            <i class="fa-solid fa-smile-wink text-white text-[10px] mt-0.5"></i>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#071842] border border-blue-400/30 flex items-center justify-center px-2">
+                            <span class="font-display font-bold text-white text-sm">Disney<span class="text-cyan-300">+</span></span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#1DB954] flex items-center justify-center gap-1 px-2">
+                            <i class="fa-brands fa-spotify text-black text-lg"></i>
+                            <span class="font-sans font-extrabold text-black text-[11px] leading-tight">Spotify<br>Premium</span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#0f0f0f] border border-slate-700 flex items-center justify-center gap-1 px-2">
+                            <i class="fa-brands fa-youtube text-red-600 text-lg"></i>
+                            <span class="font-display font-bold text-white text-xs">YouTube</span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-gradient-to-b from-[#0064FF] to-[#00296B] border border-sky-400/40 flex flex-col items-center justify-center px-2">
+                            <i class="fa-solid fa-mountain-sun text-white text-[11px] mb-0.5"></i>
+                            <span class="font-serif italic font-bold text-white text-xs leading-none">Paramount+</span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-purple-950 border border-purple-400/30 flex items-center justify-center px-2">
+                            <span class="font-display font-black text-white text-xs tracking-tight">HBO<span class="font-light">max</span></span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#F47521] flex flex-col items-center justify-center px-2">
+                            <span class="font-sans font-bold text-white text-xs">crunchyroll</span>
+                        </div>
+                        <div class="h-14 rounded-xl bg-[#002be7] flex items-center justify-center px-2">
+                            <span class="font-display font-black text-white text-base tracking-tighter">max</span>
+                        </div>
+                    </div>
+
+                    <button onclick="contactWhatsApp('¡Hola! Vi tu catálogo en la página web y quiero pedir una plataforma.')" 
+                        class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>PEDIR POR WHATSAPP</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CATÁLOGO INTERACTIVO -->
+    <section id="catalogo" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+            <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Catálogo Oficial</span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">Elige tu plataforma favorita</h2>
+            <p class="text-slate-400 text-sm sm:text-base">
+                Selecciona la plataforma y el plan que deseas adquirir y haz clic en <strong>Pedir por WhatsApp</strong> para atenderte al instante.
+            </p>
+        </div>
+
+        <!-- Filtros y Buscador (Sin "Más Solicitadas") -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+            <!-- Botones de Categoría -->
+            <div class="flex flex-wrap items-center justify-center gap-2" id="category-filters">
+                <button onclick="filterProducts('todos')" data-cat="todos" class="cat-btn bg-cyan-500 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition">
+                    Todas las Plataformas
+                </button>
+                <button onclick="filterProducts('video')" data-cat="video" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-medium transition">
+                    🎬 Películas y Series
+                </button>
+                <button onclick="filterProducts('musica')" data-cat="musica" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-medium transition">
+                    🎵 Música y YouTube
+                </button>
+            </div>
+
+            <!-- Barra de Búsqueda -->
+            <div class="relative w-full md:w-72">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="search-input" oninput="searchProducts()" placeholder="Buscar Netflix, Paramount, Disney..." 
+                    class="w-full pl-10 pr-4 py-2.5 bg-[#131B2B] border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400">
+            </div>
+        </div>
+
+        <!-- Cuadrícula de Productos (Se rellena por JS) -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Renderizado dinámico -->
+        </div>
+    </section>
+
+    <!-- SECCIÓN: ¿CÓMO ADQUIRIR NUESTROS PRODUCTOS? -->
+    <section id="como-comprar" class="py-16 bg-[#0F172A] border-y border-slate-800 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Proceso Rápido y Sencillo</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">¿Cómo adquirir tu perfil paso a paso?</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Comprar en <strong>Cuentas Digital Exprés</strong> es rápido, seguro y con atención directa en nuestro WhatsApp.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 relative">
+                <!-- Paso 1 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <div class="w-11 h-11 rounded-xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400 font-display font-bold text-lg mb-4">
+                        1
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Elige tu Plataforma</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Selecciona en el catálogo la plataforma que te interesa, como Netflix Original, Disney+, YouTube Premium, Spotify, Prime Video o Paramount+, y presiona el botón de WhatsApp.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/15 border border-purple-400/30 flex items-center justify-center text-purple-400 font-display font-bold text-lg mb-4">
+                        2
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Realiza el Pago</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        En el chat te daremos el precio correspondiente y los medios de pago para que puedas transferir fácilmente y enviarnos el comprobante.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 font-display font-bold text-lg mb-4">
+                        3
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Recibe tu Perfil al Instante</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Una vez confirmado el pago, te enviamos los datos de acceso por WhatsApp para que ingreses directamente a tu perfil asignado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: QUIÉNES SOMOS -->
+    <section id="quienes-somos" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <!-- Texto Quiénes Somos -->
+            <div class="lg:col-span-6 space-y-5">
+                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Quiénes Somos</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight">
+                    Cuentas Digital Exprés: Entretenimiento seguro al mejor precio
+                </h2>
+                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Somos <strong>Cuentas Digital Exprés</strong>, tu tienda de confianza para adquirir perfiles de streaming de video y música como <strong>Netflix Original, Disney+ y Disney+ Premium, Amazon Prime Video, YouTube Premium, Spotify Premium y Paramount+</strong>.
+                </p>
+                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Nuestro objetivo es que disfrutes de tus series, películas y deportes favoritos sin pagar de más, brindándote entrega rápida, acompañamiento para iniciar sesión y garantía durante toda la vigencia de tu plan.
+                </p>
+
+                <!-- Puntos clave de confianza -->
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-xl bg-[#131B2B] border border-slate-800 flex items-start gap-3">
+                        <i class="fa-solid fa-calendar-check text-emerald-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Vigencia Garantizada</h4>
+                            <p class="text-xs text-slate-400 mt-1">Planes de 30 días y también opción de 14 días en Netflix Original con respaldo continuo.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[#131B2B] border border-slate-800 flex items-start gap-3">
+                        <i class="fa-solid fa-user-check text-cyan-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Modalidad Perfil</h4>
+                            <p class="text-xs text-slate-400 mt-1">Recibes los datos de acceso de forma ordenada para entrar a tu perfil correspondiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Garantía -->
+            <div class="lg:col-span-6">
+                <div class="glass-card rounded-2xl p-6 sm:p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-white">¿Por qué elegirnos?</h3>
+                            <p class="text-xs sm:text-sm text-slate-400">Trato directo y soporte por WhatsApp</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-200 mb-6">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>Entrega Rápida:</strong> Apenas realizas el pago, te compartimos los datos para que accedas sin esperas.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>Cuentas Estables:</strong> Disfruta en Smart TV, celular, tablet o computador con total comodidad.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                            <span><strong>Soporte Guía:</strong> Te orientamos paso a paso si tienes cualquier consulta con tu acceso.</span>
+                        </li>
+                    </ul>
+
+                    <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-center sm:text-left">
+                            <span class="text-xs text-cyan-400 font-bold uppercase block">Atención Directa</span>
+                            <span class="text-white font-display font-bold text-base">Contáctanos directamente por WhatsApp</span>
+                        </div>
+                        <button onclick="contactWhatsApp('¡Hola! Quiero adquirir una cuenta con Cuentas Digital Exprés.')" 
+                            class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shrink-0">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Escribir al WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SOPORTE Y PREGUNTAS FRECUENTES -->
+    <section id="soporte" class="py-16 bg-[#0F172A] border-t border-slate-800 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Soporte Guía y Ayuda</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">Preguntas Frecuentes</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Resolvemos tus dudas principales antes de adquirir tu plataforma en <strong>Cuentas Digital Exprés</strong>.
+                </p>
+            </div>
+
+            <!-- Acordeón FAQ -->
+            <div class="space-y-4 mb-10">
+                <!-- Pregunta 1: Duración -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-white hover:text-cyan-300 transition">
+                        <span>1. ¿Cuánto dura la cuenta?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-cyan-400 transition-transform rotate-180"></i>
+                    </button>
+                    <div id="faq-content-1" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+                        Normalmente la duración es de <strong>30 días</strong>, y en el caso de <strong>Netflix Original</strong> también tenemos disponible la opción de <strong>14 días</strong>. Durante todo el tiempo contratado cuentas con nuestro soporte y puedes renovar fácilmente al vencer.
+                    </div>
+                </div>
+
+                <!-- Pregunta 2: Cómo funcionan / Cuentas compartidas -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-white hover:text-cyan-300 transition">
+                        <span>2. ¿Cómo funciona la modalidad de Perfil y cómo recibo el acceso?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-cyan-400 transition-transform rotate-180"></i>
+                    </button>
+                    <div id="faq-content-2" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+                        Nuestras cuentas normalmente son compartidas bajo la modalidad de <strong>Perfil</strong>. Cuando realices el pago, <strong>te compartimos por WhatsApp los datos de acceso para que puedas ingresar con el perfil asignado</strong> o de acuerdo a lo solicitado.
+                    </div>
+                </div>
+
+                <!-- Pregunta 3: Diferencia entre Disney+ y Disney+ Premium -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-white hover:text-cyan-300 transition">
+                        <span>3. ¿Cuál es la diferencia entre Disney+ y Disney+ Premium?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+                        Ambos planes tienen una duración de <strong>30 días</strong>: el plan <strong>Disney+</strong> incluye todo el catálogo de películas y series familiares de Disney, Pixar, Marvel y Star Wars, mientras que <strong>Disney+ Premium</strong> incluye además los canales de deportes en vivo de <strong>ESPN y todo el contenido de Star</strong>.
+                    </div>
+                </div>
+
+                <!-- Pregunta 4: Recomendaciones de uso -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-white hover:text-cyan-300 transition">
+                        <span>4. ¿Qué recomendaciones debo seguir con mi perfil?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed">
+                        Para disfrutar del servicio sin inconvenientes, ingresa únicamente al <strong>perfil asignado</strong>, utilízalo en 1 dispositivo a la vez y no modifiques la contraseña ni los datos de la cuenta. Si necesitas ayuda o soporte guía, escríbenos por WhatsApp.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Soporte Directo para Clientes (Sin mostrar el número) -->
+            <div class="rounded-2xl bg-[#131B2B] border border-slate-700 p-7 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="space-y-1.5">
+                    <div class="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Atención Personalizada por WhatsApp
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-white">¿Listo para pedir tu perfil o necesitas soporte?</h3>
+                    <p class="text-slate-300 text-sm max-w-xl">
+                        Haz clic en el botón para abrir nuestro chat directo de WhatsApp y te pasaremos toda la información enseguida.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
+                    <button onclick="contactWhatsApp('Hola Cuentas Digital Exprés, soy cliente y necesito *Soporte / Guía* con mi perfil.')" 
+                        class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-headset text-cyan-400"></i> Soporte Clientes
+                    </button>
+                    <button onclick="contactWhatsApp('¡Hola! Cuéntame qué plataforma tienes disponible y los precios por favor.')" 
+                        class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Escribir al WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / PIE DE PÁGINA -->
+    <footer class="border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8 text-center text-slate-400 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-400 to-emerald-400 p-0.5 flex items-center justify-center">
+                    <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-play text-cyan-400 text-xs"></i>
+                    </div>
+                </div>
+                <span class="font-display font-extrabold text-white text-base">
+                    <span class="text-cyan-400">CUENTAS</span> DIGITAL <span class="text-emerald-400 italic">EXPRÉS</span>
+                </span>
+                <span class="hidden md:inline">— Tu entretenimiento sin límites.</span>
+            </div>
+            <div>
+                <button onclick="contactWhatsApp('¡Hola Cuentas Digital Exprés! Quiero información sobre las plataformas disponibles.')" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Contacto directo por WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP (Sin número expuesto) -->
+    <button onclick="contactWhatsApp('¡Hola Cuentas Digital Exprés! Cuéntame qué plataformas tienes disponibles y sus precios.')" 
+        aria-label="Contactar por WhatsApp"
+        class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-extrabold px-5 py-3.5 rounded-full shadow-2xl wa-pulse transition transform hover:scale-105">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="hidden sm:inline text-sm">Escribir al WhatsApp</span>
+    </button>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        // Número interno de WhatsApp (oculto en la interfaz, redirige directamente al hacer clic)
+        const WHATSAPP_NUMBER = "573135898484";
+
+        // Catálogo organizado solo con modalidad Perfil y las opciones exactas solicitadas
+        const products = [
+            {
+                id: 'netflix',
+                name: 'Netflix Original',
+                category: 'video',
+                badge: 'Ultra HD 4K',
+                badgeColor: 'bg-red-500/15 text-red-300 border-red-500/30',
+                quality: 'Ultra HD 4K • 30 Días o 14 Días',
+                durationLabel: '30 Días o 14 Días',
+                options: ['30 Días', '14 Días'],
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-black border border-red-600/40 flex flex-col items-center justify-center relative overflow-hidden mb-4">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,9,20,0.25),transparent_70%)]"></div>
+                        <span class="font-display font-black text-3xl sm:text-4xl tracking-[0.14em] text-[#E50914]">NETFLIX</span>
+                    </div>
+                `,
+                features: [
+                    'Duración a elegir: 30 días o 14 días',
+                    'Incluye: Series, películas y estrenos en calidad Ultra HD 4K',
+                    'Acceso para 1 dispositivo en tu perfil',
+                    'Compatible con Smart TV, Celular, PC y Tablet'
+                ]
+            },
+            {
+                id: 'disney',
+                name: 'Disney+ / Disney+ Premium',
+                category: 'video',
+                badge: '2 Planes Disponibles',
+                badgeColor: 'bg-blue-500/15 text-blue-300 border-blue-500/30',
+                quality: 'Duración 30 Días • Películas o Sport/Star',
+                durationLabel: '30 Días',
+                options: ['Disney+ Películas', 'Disney+ Premium Sport Star'],
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-b from-[#061436] via-[#0B235A] to-[#061436] border border-blue-400/40 flex flex-col items-center justify-center relative overflow-hidden mb-4">
+                        <svg class="w-36 h-8 -mb-3 text-cyan-300/80" viewBox="0 0 160 40" fill="none">
+                            <path d="M15 35 C 45 2, 115 2, 142 32" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="font-display font-extrabold text-3xl text-white tracking-wide">Disney<span class="text-cyan-300 font-black">+</span></span>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días garantizados en ambos planes',
+                    'Disney+ Estándar: Solo películas y series de Disney, Pixar, Marvel y Star Wars',
+                    'Disney+ Premium: Incluye además deportes en vivo con ESPN y Star',
+                    'Compatible con Smart TV, móviles y consolas'
+                ]
+            },
+            {
+                id: 'amazon',
+                name: 'Amazon Prime Video',
+                category: 'video',
+                badge: 'Full HD / 4K',
+                badgeColor: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+                quality: 'Full HD / 4K • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-b from-[#00A8E1] to-[#00739E] border border-sky-300/40 flex flex-col items-center justify-center relative overflow-hidden mb-4">
+                        <span class="font-display font-extrabold text-3xl text-white tracking-tight leading-none">prime video</span>
+                        <svg class="w-28 h-6 mt-1 text-white" viewBox="0 0 120 25" fill="none">
+                            <path d="M15 6 C 45 22, 85 22, 108 8" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M101 5 L110 7 L105 15" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días',
+                    'Incluye: Series exclusivas Amazon Originals y películas taquilleras',
+                    'Calidad de reproducción Full HD y 4K',
+                    'Compatible con Smart TV, celular, PC y tablet'
+                ]
+            },
+            {
+                id: 'paramount',
+                name: 'Paramount+',
+                category: 'video',
+                badge: 'Cine y Series',
+                badgeColor: 'bg-blue-500/15 text-sky-300 border-sky-500/30',
+                quality: 'Full HD • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-b from-[#0064FF] via-[#0046B8] to-[#001F5C] border border-sky-400/50 flex flex-col items-center justify-center relative overflow-hidden px-4 mb-4 shadow-inner">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.22),transparent_65%)]"></div>
+                        <svg class="w-48 h-24 relative z-10 drop-shadow" viewBox="0 0 260 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Arco oficial de estrellas de Paramount -->
+                            <g fill="white">
+                                <polygon points="62,56 63.5,59 67,59.5 64.5,62 65,65.5 62,63.8 59,65.5 59.5,62 57,59.5 60.5,59" />
+                                <polygon points="71,41 72.5,44 76,44.5 73.5,47 74,50.5 71,48.8 68,50.5 68.5,47 66,44.5 69.5,44" />
+                                <polygon points="84,28 85.5,31 89,31.5 86.5,34 87,37.5 84,35.8 81,37.5 81.5,34 79,31.5 82.5,31" />
+                                <polygon points="101,19 102.5,22 106,22.5 103.5,25 104,28.5 101,26.8 98,28.5 98.5,25 96,22.5 99.5,22" />
+                                <polygon points="120,14 121.5,17 125,17.5 122.5,20 123,23.5 120,21.8 117,23.5 117.5,20 115,17.5 118.5,17" />
+                                <polygon points="140,14 141.5,17 145,17.5 142.5,20 143,23.5 140,21.8 137,23.5 137.5,20 135,17.5 138.5,17" />
+                                <polygon points="159,19 160.5,22 164,22.5 161.5,25 162,28.5 159,26.8 156,28.5 156.5,25 154,22.5 157.5,22" />
+                                <polygon points="176,28 177.5,31 181,31.5 178.5,34 179,37.5 176,35.8 173,37.5 173.5,34 171,31.5 174.5,31" />
+                                <polygon points="189,41 190.5,44 194,44.5 191.5,47 192,50.5 189,48.8 186,50.5 186.5,47 184,44.5 187.5,44" />
+                                <polygon points="198,56 199.5,59 203,59.5 200.5,62 201,65.5 198,63.8 195,65.5 195.5,62 193,59.5 196.5,59" />
+                            </g>
+                            <!-- Pico de la montaña de Paramount -->
+                            <path d="M130 22 L76 78 H184 L130 22 Z" fill="white"/>
+                            <path d="M130 22 L106 78 L122 65 L130 74 L141 60 L158 78 L130 22 Z" fill="#E0F2FE"/>
+                            <path d="M130 42 L114 78 H146 L130 42 Z" fill="#003791"/>
+                            <!-- Texto oficial Paramount+ -->
+                            <text x="130" y="102" text-anchor="middle" fill="white" font-family="Georgia, serif" font-weight="bold" font-style="italic" font-size="27" letter-spacing="0.5">Paramount+</text>
+                        </svg>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días',
+                    'Incluye: Películas de Paramount Pictures, series exclusivas, Showtime y Nickelodeon',
+                    'Reproducción fluida en alta definición',
+                    'Entrega inmediata tras confirmar el pago'
+                ]
+            },
+            {
+                id: 'youtube',
+                name: 'YouTube Premium + Music',
+                category: 'musica',
+                badge: 'Cero Publicidad',
+                badgeColor: 'bg-red-500/15 text-red-300 border-red-500/30',
+                quality: 'Videos + Música • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-[#0B0B0B] border border-slate-700 flex items-center justify-center gap-2.5 px-4 relative overflow-hidden mb-4">
+                        <div class="w-12 h-9 rounded-xl bg-[#FF0000] flex items-center justify-center text-white shadow-md">
+                            <i class="fa-solid fa-play text-base ml-0.5"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-tight block leading-none">YouTube</span>
+                            <span class="text-[11px] uppercase tracking-widest text-red-400 font-bold block mt-0.5">PREMIUM</span>
+                        </div>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días con garantía',
+                    'Incluye: Videos de YouTube sin anuncios y reproducción en segundo plano',
+                    'Acceso completo a la app YouTube Music Premium',
+                    'Descarga videos y música para ver sin conexión'
+                ]
+            },
+            {
+                id: 'spotify',
+                name: 'Spotify Premium',
+                category: 'musica',
+                badge: 'Música Sin Límites',
+                badgeColor: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+                quality: 'Sin Anuncios • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-b from-[#1ED760] to-[#159E45] border border-emerald-300/40 flex items-center justify-center gap-3 px-4 relative overflow-hidden mb-4">
+                        <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center text-[#1ED760] text-3xl shadow">
+                            <i class="fa-brands fa-spotify"></i>
+                        </div>
+                        <div class="text-left leading-none">
+                            <span class="font-display font-black text-2xl sm:text-3xl text-black block">Spotify</span>
+                            <span class="font-display font-extrabold text-lg sm:text-xl text-black/90 block -mt-1">Premium</span>
+                        </div>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días sin anuncios publicitarios',
+                    'Incluye: Descarga de canciones para escuchar sin internet',
+                    'Saltos de canciones ilimitados y máxima calidad de audio',
+                    'Funciona en celular, computador, tablet y TV'
+                ]
+            },
+            {
+                id: 'hbomax',
+                name: 'HBO Max / Max',
+                category: 'video',
+                badge: 'Catálogo HBO',
+                badgeColor: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
+                quality: 'Full HD / 4K • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-r from-[#3B0764] via-[#1E1B4B] to-[#002BE7] border border-purple-400/40 flex items-center justify-center gap-3 px-4 relative overflow-hidden mb-4">
+                        <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">HBO<span class="font-light">max</span></span>
+                        <span class="text-white/40 text-xl">/</span>
+                        <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tighter">max</span>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días con garantía',
+                    'Incluye: Series originales de HBO, Warner Bros, Universo DC y Champions',
+                    'Calidad Full HD / 4K',
+                    'Compatible con todos tus dispositivos'
+                ]
+            },
+            {
+                id: 'crunchyroll',
+                name: 'Crunchyroll Mega Fan',
+                category: 'video',
+                badge: 'Anime Sin Límites',
+                badgeColor: 'bg-orange-500/15 text-orange-300 border-orange-500/30',
+                quality: 'Full HD • 30 Días',
+                durationLabel: '30 Días',
+                options: null,
+                bannerHtml: `
+                    <div class="h-28 rounded-xl bg-gradient-to-b from-[#F47521] to-[#D95B08] border border-orange-300/40 flex flex-col items-center justify-center relative overflow-hidden mb-4">
+                        <div class="w-11 h-11 rounded-full border-4 border-white flex items-center justify-center mb-1">
+                            <div class="w-4 h-4 rounded-full bg-white translate-x-1 -translate-y-0.5"></div>
+                        </div>
+                        <span class="font-display font-extrabold text-xl text-white tracking-wide">crunchyroll</span>
+                    </div>
+                `,
+                features: [
+                    'Duración: 30 días continuos',
+                    'Incluye: Todo el catálogo de anime sin anuncios en HD',
+                    'Temporadas completas y estrenos en simultáneo con Japón',
+                    'Entrega rápida por WhatsApp'
+                ]
+            }
+        ];
+
+        // Estado actual de opción seleccionada (para Netflix 30/14 días y Disney+/Disney+ Premium)
+        const selectedOption = {};
+
+        // Renderizar tarjetas de productos
+        function renderProducts(filterCategory = 'todos', searchQuery = '') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = products.filter(item => {
+                const matchesCategory = filterCategory === 'todos' || item.category.includes(filterCategory);
+                const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 glass-card rounded-2xl p-8">
+                        <i class="fa-brands fa-whatsapp text-4xl text-emerald-400 mb-3"></i>
+                        <h3 class="text-lg font-bold text-white">¿Buscas otra plataforma o un combo?</h3>
+                        <p class="text-slate-400 text-sm mt-1 mb-4">Escríbenos directamente a nuestro WhatsApp y te pasamos toda la información.</p>
+                        <button onclick="contactWhatsApp('Hola Cuentas Digital Exprés, estoy buscando una plataforma y quiero consultar disponibilidad.')" 
+                            class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm">
+                            Consultar por WhatsApp
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(product => {
+                if (product.options && !selectedOption[product.id]) {
+                    selectedOption[product.id] = product.options[0];
+                }
+
+                const currentOpt = product.options ? selectedOption[product.id] : product.durationLabel;
+
+                // Si el producto tiene sub-opciones (ej. Netflix 30/14 días o Disney+ Estándar/Premium)
+                let optionsSelectorHtml = '';
+                if (product.options) {
+                    optionsSelectorHtml = `
+                        <div class="bg-slate-950 p-1 rounded-xl grid grid-cols-2 gap-1 mb-4 border border-slate-800">
+                            ${product.options.map((opt, idx) => `
+                                <button onclick="changeOption('${product.id}', '${opt}')" 
+                                    id="btn-opt-${product.id}-${idx}"
+                                    class="py-2 px-2 rounded-lg text-xs font-bold transition ${currentOpt === opt ? 'bg-cyan-500 text-slate-950 shadow' : 'text-slate-400 hover:text-white'}">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl p-5 flex flex-col justify-between';
+                card.innerHTML = `
+                    <div>
+                        <!-- Banner del Logo -->
+                        ${product.bannerHtml}
+
+                        <!-- Nombre y etiqueta -->
+                        <div class="flex items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="font-display font-bold text-xl text-white leading-snug">${product.name}</h3>
+                                <span class="text-xs text-cyan-400 font-medium">${product.quality}</span>
+                            </div>
+                            <span class="text-[11px] font-bold px-2.5 py-1 rounded-lg border ${product.badgeColor} whitespace-nowrap">
+                                ${product.badge}
+                            </span>
+                        </div>
+
+                        <!-- Apartado fijo: Modalidad únicamente PERFIL -->
+                        <div class="mb-3 flex items-center justify-between bg-slate-950/90 border border-slate-800 px-3.5 py-2 rounded-xl">
+                            <span class="text-xs text-slate-400 font-medium">Modalidad:</span>
+                            <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-check"></i> Perfil
+                            </span>
+                        </div>
+
+                        <!-- Selector de Plan/Duración cuando aplica (Netflix o Disney) -->
+                        ${optionsSelectorHtml}
+
+                        <!-- Lista de lo que incluye -->
+                        <div class="mb-5">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">Incluye:</span>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                                ${product.features.map(feat => `
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-cyan-400 mt-1 text-xs shrink-0"></i>
+                                        <span>${feat}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Botón de pedido a WhatsApp -->
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] text-emerald-400 font-semibold block">● Perfil Disponible</span>
+                            <span id="opt-label-${product.id}" class="text-xs text-slate-300 font-bold">${currentOpt}</span>
+                        </div>
+                        <button onclick="orderProduct('${product.id}', '${product.name}')" 
+                            class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-4 py-2.5 rounded-xl shadow-md transition flex items-center gap-2 text-xs sm:text-sm shrink-0">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Pedir por WhatsApp</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Cambiar opción en productos con selector (Netflix 30/14 días o Disney+ / Disney+ Premium)
+        function changeOption(productId, optionValue) {
+            selectedOption[productId] = optionValue;
+            const product = products.find(p => p.id === productId);
+            if (product && product.options) {
+                product.options.forEach((opt, idx) => {
+                    const btn = document.getElementById(`btn-opt-${productId}-${idx}`);
+                    if (btn) {
+                        btn.className = opt === optionValue
+                            ? 'py-2 px-2 rounded-lg text-xs font-bold transition bg-cyan-500 text-slate-950 shadow'
+                            : 'py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white';
+                    }
+                });
+            }
+            const label = document.getElementById(`opt-label-${productId}`);
+            if (label) label.textContent = optionValue;
+        }
+
+        // Filtrar por categoría
+        let currentCat = 'todos';
+        function filterProducts(category) {
+            currentCat = category;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.cat === category) {
+                    btn.className = 'cat-btn bg-cyan-500 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition';
+                } else {
+                    btn.className = 'cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-medium transition';
+                }
+            });
+            const query = document.getElementById('search-input').value;
+            renderProducts(currentCat, query);
+        }
+
+        // Buscar por texto
+        function searchProducts() {
+            const query = document.getElementById('search-input').value;
+            renderProducts(currentCat, query);
+        }
+
+        // Enviar pedido de un producto específico por WhatsApp
+        function orderProduct(productId, productName) {
+            const product = products.find(p => p.id === productId);
+            const chosenPlan = (product && product.options) ? selectedOption[productId] : '30 Días';
+            const message = `¡Hola *Cuentas Digital Exprés*! Me interesa adquirir un *Perfil* de *${productName}* con el plan *${chosenPlan}*. ¿Me brindas información para realizar el pago?`;
+            contactWhatsApp(message);
+        }
+
+        // Función universal para abrir WhatsApp directamente
+        function contactWhatsApp(customMessage) {
+            const encodedMsg = encodeURIComponent(customMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Acordeón de Preguntas Frecuentes
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Menú móvil
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Inicializar catálogo al cargar la página
+        window.onload = function() {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
